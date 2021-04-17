@@ -7,15 +7,19 @@ Método Newton-Cotes: Regra dos Trapézios Composta
 #include <stdlib.h>
 #include <math.h>
 
-//#define F(x) exp(x) //questão 1 da lista
+#define F(x) exp(x) //questão 1 da lista
 //#define F(x) (1/x)*exp(x/2) //questão 2 da lista
-#define F(x) (1/(1+x)) //questão 3 da lista
+//#define F(x) (1/(1+x)) //questão 3 da lista
+
+//#define RESULTADO_EXATO 4.500014451138717 //resultado exato da questão 2 da lista
 
 double regraDosTrapeziosComposta(double x0, double xn, double h);
+double Abs(double x);
+double erroAbs(double resultadoExato, double integralEncontrada);
 
 int main(int argc, char* argv[])
 {
-    double x0, xn, numIntervalos, h;
+    double x0, xn, numIntervalos, h, integral;
     
     printf("Informe o x0, xn e o número de intervalos: ");
     scanf("%lf %lf %lf", &x0, &xn, &numIntervalos);
@@ -23,7 +27,10 @@ int main(int argc, char* argv[])
 
     printf("\nParametros: x0 = %lf\txn = %lf\t\tnúmero de intervalos = %.0lf\t\th = %.16lf\n\n", x0, xn, numIntervalos, h);
 
-    printf("\n\t\t\t\t\t-> Resultado da integral = %.16lf\n", regraDosTrapeziosComposta(x0, xn, h));
+    integral = regraDosTrapeziosComposta(x0, xn, h);
+    printf("\n\t\t\t\t\t-> Resultado da integral = %.16lf\n", integral);
+    
+    //printf("\t\t\t\t\t-> Erro absoluto (EA) = %.16lf\n", erroAbs(RESULTADO_EXATO, integral));
 
     return 0;
 }
@@ -48,4 +55,17 @@ double regraDosTrapeziosComposta(double x0, double xn, double h)
     integral = integral * (h/2);
 
     return integral;
+}
+
+double erroAbs(double resultadoExato, double integralEncontrada) {
+    return Abs(resultadoExato - integralEncontrada);
+}
+
+double Abs(double x) {
+    if(x > 0) {
+        return x;
+    }
+    else {
+        return x * (-1);
+    }
 }
