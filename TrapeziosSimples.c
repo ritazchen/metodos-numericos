@@ -9,7 +9,7 @@ Método Newton-Cotes: Regra dos Trapézios Simples (apenas 1 trapézio)
 
 #define F(x) pow(x, 2)
 
-//#define RESULTADO_EXATO 1/3.0
+#define RESULTADO_EXATO 1/3.0
 
 double regraDosTrapeziosSimples(double x0, double x1, double h);
 double Abs(double x);
@@ -23,12 +23,12 @@ int main(int argc, char* argv[])
     scanf("%lf %lf", &x0, &x1);
     h = x1 - x0;
 
-    printf("\nParametros: x0 = %lf\txn = %lf\t\th = %.16lf\n\n", x0, x1, h);
+    printf("\nParametros: x0 = %lf\tx1 = %lf\t\th = %.16lf\n\n", x0, x1, h);
     
     integral = regraDosTrapeziosSimples(x0, x1, h);
     printf("\n\t-> Resultado da integral = %.16lf\n", integral);
     
-    //printf("\t-> Erro absoluto (EA) = %.16lf\n", erroAbs(RESULTADO_EXATO, integral));
+    printf("\t-> Erro absoluto (EA) = %.16lf\n", erroAbs(RESULTADO_EXATO, integral));
     
     return 0;
 }
