@@ -1,6 +1,6 @@
 /*
 Métodos Numéricos - Soluções Numéricas de EDOs
-Método de Runge-Kutta de 3a ordem (testar)
+Método de Runge-Kutta de 3a ordem
 */
 
 #include <stdio.h>
@@ -21,13 +21,11 @@ double K3(double x, double y, double h);
 
 int main(int argc, char* argv[])
 {
-    double x0 = 0, xn = 1, y0 = 1, h = 0.2, yn;
+    //double x0 = 0, xn = 1, y0 = 1, h = 0.2, yn;
     
-    /*
     printf("Informe o x0, y0, xn e h: ");
     double x0, y0, xn, h, yn;
     scanf("%lf %lf %lf %lf", &x0, &y0, &xn, &h);
-    */
 
     printf("\nParametros: x0 = %lf\ty0 = %lf\t\txn = %lf\t\th = %lf\n\n", x0, y0, xn, h);
 
@@ -45,12 +43,12 @@ double terceiraOrdem(double x0, double xn, double y0, double h)
     double i, y = y0, x = x0;
     int iteracao = 0;
 
-    printf("iterações\t\t   xi\t\t\t   yi\t\t\tK1\t\t\t   K2\t\t\t    sol. exata\t\t\t\t   EA\n");
-    printf("    %d\t\t     %.5lf\t\t%.5lf\t\t%.5lf\t\t%.5lf\t\t%.16lf\t\t%.16lf\n", iteracao++, x, y, K1(x,y,h), K2(x,y,h), EXATO(x,y), 0.0);
+    printf("iterações\t\t   xi\t\t\t   yi\t\t\tK1\t\t\t   K2\t\t\t\tK3\t\t\t    sol. exata\t\t\t\t   EA\n");
+    printf("    %d\t\t     %.5lf\t\t%.5lf\t\t%.5lf\t\t%.5lf\t\t\t%.5lf\t\t%.16lf\t\t%.16lf\n", iteracao++, x, y, K1(x,y,h), K2(x,y,h), K3(x, y, h), EXATO(x,y), 0.0);
 
     for(x = x0 + h; iteracao <= ((xn-x0)/h); x = x + h) {
-        y = y + (2/9)*K1(x, y, h) + (1/3)*K2(x, y, h) + (4/9)*K3(x, y, h);
-        printf("    %d\t\t     %.5lf\t\t%.5lf\t\t%.5lf\t\t%.5lf\t\t%.16lf\t\t%.16lf\n", iteracao++, x, y, K1(x,y,h), K2(x,y,h), EXATO(x,y), erroAbs(y, EXATO(x,y)));
+        y = y + ((2/9.0)*K1(x, y, h)) + ((1/3.0)*K2(x, y, h)) + ((4/9.0)*K3(x, y, h));
+        printf("    %d\t\t     %.5lf\t\t%.5lf\t\t%.5lf\t\t%.5lf\t\t\t%.5lf\t\t%.16lf\t\t%.16lf\n", iteracao++, x, y, K1(x,y,h), K2(x,y,h), K3(x,y,h), EXATO(x,y), erroAbs(y, EXATO(x,y)));
     }
 
     return y;
@@ -74,9 +72,9 @@ double K1(double x, double y, double h) {
 }
 
 double K2(double x, double y, double h) {
-    return (F((x + (h/2)), (y + (K1(x, y, h)/2)))) * h;
+    return (F((x + (h/2.0)), (y + (K1(x, y, h)/2.0)))) * h;
 }
 
 double K3(double x, double y, double h) {
-    return (F((x + ((3*h)/4)), (y + ((3*K2(x, y, h))/4)))) * h;
+    return (F((x + ((3*h)/4.0)), (y + ((3*K2(x, y, h))/4.0)))) * h;
 }
