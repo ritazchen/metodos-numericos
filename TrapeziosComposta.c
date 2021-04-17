@@ -7,10 +7,12 @@ Método Newton-Cotes: Regra dos Trapézios Composta
 #include <stdlib.h>
 #include <math.h>
 
-#define F(x) exp(x) //questão 1 da lista
+//#define F(x) pow(x,2) //exemplo do slide
+//#define F(x) exp(x) //questão 1 da lista
 //#define F(x) (1/x)*exp(x/2) //questão 2 da lista
-//#define F(x) (1/(1+x)) //questão 3 da lista
+#define F(x) (1/(1+x)) //questão 3 da lista
 
+//#define RESULTADO_EXATO 1/3.0 //exemplo do slide
 //#define RESULTADO_EXATO 4.500014451138717 //resultado exato da questão 2 da lista
 
 double regraDosTrapeziosComposta(double x0, double xn, double h);
