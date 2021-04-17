@@ -7,10 +7,12 @@ Método Newton-Cotes: Regra 3/8 de Simpson
 #include <stdlib.h>
 #include <math.h>
 
+//#define F(x) pow(x,2)
 //#define F(x) exp(x) //questão 1 da lista
 //#define F(x) (1/x)*exp(x/2) //questão 2 da lista
 #define F(x) (1/(1+x)) //questão 3 da lista
 
+//#define RESULTADO_EXATO 1/3.0
 //#define RESULTADO_EXATO 4.500014451138717
 
 double regraUmTercoSimpson(double x0, double xn, double h);
