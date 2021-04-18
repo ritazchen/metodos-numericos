@@ -4,7 +4,7 @@ Método Newton-Cotes: Regra dos Trapézios Composta
 
 Questão 4 da lista (não sei se a resolução tá certa)
 
-gcc -o QTC QuestaoTrapeziosComposta.c
+gcc -o QTC QuestaoTrapeziosComposta.c -lm
 ./QTC
 */
 
@@ -26,7 +26,9 @@ int main(int argc, char* argv[])
     
     printf("Informe o x0 e xn: ");
     scanf("%lf %lf", &x0, &xn);
-    h = pow(10, -2); //chute
+    
+    //h = pow(10, -2); //chute 1 -> 100 iterações
+    h = (xn - x0)/51.0; //chute 2 -> 51 iterações
 
     printf("\nParametros: x0 = %lf\txn = %lf\t\th = %lf\n\n", x0, xn, h);
 
