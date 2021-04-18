@@ -24,12 +24,12 @@ double escolheFuncao(int iteracao, double x, double y);
 
 int main(int argc, char* argv[])
 {
-    double x0 = 2, xn = 2.1, y0 = 2, h = 0.1, yn;
-    /*
+    //double x0 = 2, xn = 2.1, y0 = 2, h = 0.1, yn;
+    
     printf("Informe o x0, y0, xn e h: ");
     double x0, xn, y0, h, yn;
     scanf("%lf %lf %lf %lf", &x0, &y0, &xn, &h);
-    */
+    
     printf("\nParametros: x0 = %lf\ty0 = %lf\t\txn = %lf\t\th = %lf\n\n", x0, y0, xn, h);
 
     yn = serieTaylor(x0,xn,y0,h);
