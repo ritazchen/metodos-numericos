@@ -11,5 +11,5 @@ all:
 	$(cc) -o Segunda SegundaRungeKutta.c $(cflags)
 	$(cc) -o Terceira TerceiraRungeKutta.c $(cflags)
 	$(cc) -o Quarta QuartaRungeKutta.c $(cflags)
-	$(cc) -o presaEuler ModeloPresaPredador.c $(cflags)
-	$(cc) -o presaQuarta ModeloPresaPredadorQuartaRK.c $(cflags)
+	$(cc) -o presaEuler PresaPredadorEuler.c $(cflags)
+	$(cc) -o presa4RK PresaPredador4RK.c $(cflags)
