@@ -1,6 +1,6 @@
 /*
 Métodos Numéricos - Soluções Numéricas de EDOs
-Exercício: Modelo Epidemico de COVID-19 (Modelo SIDR) utilizando o método de Euler
+Exercício: Modelo Presa-Predador utilizando o método de Euler
 */
 
 #include <stdio.h>
